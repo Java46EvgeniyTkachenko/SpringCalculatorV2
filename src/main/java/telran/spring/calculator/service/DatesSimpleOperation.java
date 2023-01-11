@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import telran.spring.calculator.dto.DateDaysOperationData;
 import telran.spring.calculator.dto.OperationData;
-@Service  //("dates-simple")
+@Service("dates-simple")
 public class DatesSimpleOperation implements Operation {
 
 	@Override
@@ -21,8 +21,10 @@ public class DatesSimpleOperation implements Operation {
 				days = -days;
 			}
 			res = date.plusDays(days).toString();
+			LOG.debug("additionalData: {}  result: {}", data.additionalData, res);
 		} catch (Exception e) {
 			res = "Wrong Date format should be YYYY-MM-DD";
+			LOG.error("Exception {}", e.getMessage());
 		}
 
 		return res;

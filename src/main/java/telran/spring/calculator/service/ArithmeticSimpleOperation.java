@@ -6,7 +6,7 @@ import java.util.function.BiFunction;
 import org.springframework.stereotype.Service;
 
 import telran.spring.calculator.dto.*;
-@Service   //("arithmetic-simple")
+@Service("arithmetic-simple")
 public class ArithmeticSimpleOperation implements Operation {
 private static Map<String, BiFunction<Double, Double, String>> operations;
 static {
@@ -25,8 +25,10 @@ static {
 			var function = operations.getOrDefault(data.additionalData,
 					(o1, o2) -> "Wrong arithmetic operation should be (*,/,+,-)");
 			res =function.apply(arithmeticData.operand1, arithmeticData.operand2);
+			LOG.debug("additionalData: {}  result: {}", data.additionalData, res);
 		} catch (Exception e) {
 			res = "Arithmetic Operation mismatch type data";
+			LOG.error("Exception {}", e.getMessage());
 		}
 		
 		return res;
