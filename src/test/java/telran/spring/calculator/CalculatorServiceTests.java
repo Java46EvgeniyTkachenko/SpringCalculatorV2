@@ -1,4 +1,4 @@
-package telran.spring;
+package telran.spring.calculator;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -9,12 +9,14 @@ import org.springframework.boot.test.context.SpringBootTest;
 import telran.spring.calculator.dto.*;
 import telran.spring.calculator.service.*;
 
-//@SpringBootTest
+@SpringBootTest
 class CalculatorServiceTests {
-//	@Autowired
-	ArithmeticSimpleOperation arithmetic = new ArithmeticSimpleOperation();
-	DatesBetweenOperation dateBetween = new DatesBetweenOperation();
-	DatesSimpleOperation dateSimple = new DatesSimpleOperation();
+	@Autowired
+	ArithmeticSimpleOperation arithmetic; //= new ArithmeticSimpleOperation();
+	@Autowired
+	DatesBetweenOperation dateBetween; //= new DatesBetweenOperation();
+	@Autowired
+	DatesSimpleOperation dateSimple; //= new DatesSimpleOperation();
 
 	@Test
 	void arithmeticTest() {

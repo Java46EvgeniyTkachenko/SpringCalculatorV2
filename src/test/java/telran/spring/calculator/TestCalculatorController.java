@@ -1,10 +1,11 @@
-package telran.spring;
+package telran.spring.calculator;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -19,11 +20,13 @@ import telran.spring.calculator.dto.*;
 
 
 
-//@SpringBootTest(classes= CalculatorController.class)
-@WebMvcTest(CalculatorController.class)	
+@SpringBootTest
+@AutoConfigureMockMvc
+//@WebMvcTest(CalculatorController.class)	
 class TestCalculatorController {
 @Autowired
  MockMvc mockMvc;
+@Autowired
 ObjectMapper mapper;
 	@Test
 	void rightDataControllerTest() throws Exception {	
